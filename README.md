@@ -5,6 +5,9 @@ V-Module is a collection of Max for Live devices for real-time video content cre
 
 You can check for additional information and work examples on:
 http://fabriziopoce.com/max.html
+
 https://vimeo.com/channels/vmodule
+
 https://vimeo.com/groups/jitterinmax4live
+
 https://vimeo.com/june74
