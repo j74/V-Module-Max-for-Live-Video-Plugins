@@ -1,0 +1,112 @@
+Ver 0.9.1
+- Compatibility for Live 9
+- Many device rewritten (and renamed), largely using Java and Javascript
+- Additional shaders
+- New Particle simulations in Java
+- Extensions to V-Sketch
+- Support for Materials (as from Max 6.x)
+- Compatibility with VIZZable (using manual routing and render context settings)
+
+Ver 0.8.1
+- New V-SimPlayLibrary, with more compact and powerful toolset for video clip playback
+- New Audio Analisys devices (V-AuScope-xxx), with much tighter audio signal recognition and Live.API triggering
+- Syphon-enabled mixer (MAC OS only) updated 
+- Some fixes to devices and installation pack
+
+Ver 0.8
+- Added a Syphon-enabled V-Mixer (http://syphon.v002.info/, MAX OS only, V-GL-RenderMixer4RGB-Syphon.amxd) for sending the 4-channel mixed-down output to a Syphon client (using servername "MixerOut") (***). 
+- Control devices for OSC communication (OSC2MIDI.amxd, V-MIDI2OSC.amxd)
+- A new wrapper for all V-Module 250+ shaders for video and 3D effects (V-FX-GL-Clab.amxd).
+- An efficient folder video clip player (SimPlayList.amxd)
+- A wrapper for complex 3D scene sketching (V-GSketchListX.amxd), based on jit.gl.sketch syntax interpreted files. (***).
+- A new wrapper for materials shaders for 3D object (V-GPreShader.amxd).
+- Devices for OSC communication between V-Module and vvvv (V-Matrix2VVVV_snd.amxd, V-MIDI2VVVV_snd.amxd)
+- Possibility for a secondary/auxiliary window (V-GL-RenderMixer4RGB-FdbckAux.amxd + V-GL-RenderAuxMonitor.amxd).
+- 3D camera rewritten in java (old version still available)
+- Support for FSAA (antialiasing) in all mixers.
+- General code clean up and optimization in fairly all devices.
+(***) Please read the notes in the PDF in the installation pack for more details.
+
+Ver 0.7.2
+- All V-FX-GL effects rewritten with more efficient chaining (GPU only). Note: Requires a V-Mixer to be in the liveset in order to work. This is true also for VIZZable users.
+- Tools for morphing of OpenGL objects (vertex morphing): 
+- Tools for movement 3D recording and editing (as matrixset/JXF format): V-GMoveCapture3D, V-GMoveState3D, V-GMovePort3D, V-GMoveEdit3D, V-GMovePlay3D
+- Tools for OBJ to OpenGL format matrix conversion and read (nice for morphing or physics effects on 3D objects vertices): V-GSnapObj, V-GObj2Matrix, V-G-WriteMatrix, V-GMatrix
+- New device type: V-OpenGL-Processor for post-processing-like effects on top of 3D objects (based on OpenGL shaders)
+- V-GL-RenderMixer4RGBPostFdbk, a new version of the V-Mixer allowing full scene post-processing by V-OpenGL-Processor devices
+- More tools for recording of 2D, 3D and both: V-GL-RenderMixer4RGBOut (rewritten), V-GL-RenderOut, V-GL-RenderGrabOut
+- V-ZoomPlay modified to easier "still picture scanning"
+- Framework to support Vade's v001 shaders  (http://001.vade.info) as a V-FX-GL effect (V-FX-GL-V001lab)
+- Framework to support Andrew Benson's Optical Flow shaders (http://pixlpa.com/category/blog) as a V-FX-GL effect (see V-FX-GL-3lab)
+- OpenGL-FX on vertex manipulation with simple physics of an oscillator applied on 3D object coordinates (V-FX-GLOscillator)
+
+Ver 0.7
+- New V-AuInstruments for playback of clips having both video and audio. Audio and video playback is in sync, audio sent through Live's mixer: V-SimAudioPlay, V-SliceAudioBeat, V-VideoAudioRack
+- New V-SimAudioLooper an V-SimLooper for Live tempo warp-looping of video clips (respectively with and without audio feed)
+- New V-FX-FFWrapper for FreeFrame plugins support
+- All previously available V-Instruments (MIDI devices) for QT playback do not spill audio "outside" of Live
+- New V-AuBeat based on external op.beatitude~ for Live tempo settings from audio input (even a live feed from external)
+- New V-AuBeat2CVEnvelope based on external op.beatitude~ for very tight CV envelope generation from audio input (even a live feed from external)
+- All video input devices save file (clips/folder) as part of the liveset
+- V-ObjShape expanded for advanced texturing, multi rendering (cloning). It also saves the file as part of the liveset
+- New V-ZoomPlay added (for picture zooming)
+- Various enhancements to V-GMove3DW devices (3D camera movements) including a toggle for 2d/3d view switch
+
+Ver 0.6 
+- V-SlabGen instrument introduced for generation of visuals (such as procedural fractals) based on custom OpenGL shaders. 
+- V-GTexture introduced for texture operations, such as video-to-texture (texture mapping in a 3D object) and texture-to-video (rendering to texture, feedback) 
+- V-GMulti introduced for efficient cloning of a source 3D object, creating potentially a very large number of 3D clones in space 
+- Added a V-Mixer version with OpenGL based internal 3D video feedback. 
+- Added a large number of OpenGL effects and devices for density, proximity, morphing applications 
+- Added a number of V-AuScope (audio) processing effects for tighter audio to video manipulation. 
+- Added a range of OpenGL coordinate formula generators (such as V-GCoord3 and V-GCoord4) for more control/customization of 3D objects. 
+- Added V-Boids instrument with simple fluid simulator. 
+- Added V-AuEnvelope audio effect for tracking beats and generating envelopes based on Live’s tempo 
+
+Ver 0.5
+- Solved some bugs with open GL effects and mixer apparently due to video window automatically pop-up. Note: on V-Mixer devices you need to explicitly set "screen ON" now to have a window.
+- Added a V-Mixer version (V-GL-RenderMixer4RGB-Out.amxd) for an additional output stream (useful for instance to do recording to disk by V-Rec)
+- Several "video" / non 3D devices (V-VideoRack, V-SliceBeat, V-GL-Rota, V-GL-Slab) support ChrisG auto connect mode (i.e. in combination with VIZZable 0.9.2 or later. See device names with "-auto" suffix.
+- LiveAPI LFO modulation supported (and LFO parameter bank removed). Each device shows its parameters (shortnames) for modulation and the V-LiveMod new device allows CVsend to LiveAPI modulation mapping
+- V-Effects type OpenGL revised: no additional window required and better backread / readback support.
+- V-Control device V-DroidSens2CV and V-DroidCtrl2CV added for Android control in combination with Matt Benatan's Max/MSP control app available at http://mattbenatan.com/)  
+- V-Control device V-Joy2CV added for support of HID usb devices (such as Joystick, Gamepad) etc. as CVsend (using the V-CV2MIDI you can use these to send MIDI informations).
+- Several new OpenGL 3D tools (V-GCoord3, V-FX-GLOpScalar, V-GMove3DWJoy, V-GMove3DWPad) 
+
+Ver 0.4
+- Major review of all devices for compatibility against Ableton Max for Live Production Guidelines v0.6:
+ - All GUI parameters are labeled in a meaningful way (see info view). Yes, you read it right: ALL GUI parameters.
+ - The most significant GUI parameters (all type float and/or int, according to M4L constraints) can be mapped and automated for clip envelopes. 
+ - Many devices have useful info view text (thanks M._TriangelKlang for the help)
+ - All devices behave politely and do not spill into Undo history (no loadbang on live.objects, Max umenu managed through pattr instances) 
+ - All devices are frozen and directly compatibile with OSX and Windows OS
+- Enhancements and fixes on many devices, in particular for V-Input devices:
+ - All V-Input devices have rate which can also go into negative values (thanks ChrisG for the tip)
+ - All V-Input devices are now efficient with memory and use both drag'n'drop and click-to-read ways to open clips (thanks to ChrisG for the "invisible button").
+ - V-VideoRack supports Thumbnails creation also iffolder is selected while device is ON.
+ - V-VideoRack, V-SliceBeat, V-Mixer and most V-Effects have full Info View help 
+- Some OpenGL devices will see improvement in the use of backread technique
+- Documentation PDF updated and corrected to reflect changes
+
+Ver 0.3.1
+- V-VideoRack and V-SliceBeat support *** absolute *** paths. 
+
+Ver 0.3
+- V-VideoRack rewritten. Now performance and memory usage are definitively efficient. 
+- V-VideoRack supports now 16 pads per device 
+- V-VideoRack supports chaining of multiple V-VideoRack, by using pad MIDI "offset" (see example08 liveset) 
+- V-VideoRack tested loading 64 clips in 4x V-VideoRacks 
+- V-VideoRack supports retrigger/continue options for multiple hits on same pad 
+- V-VideoRack does not abuse undo list 
+
+Ver 0.2.1
+- V-VideoRack added
+- V-Cam made cross platform 
+- V-Mixer and V-Out devices with window screen support ESC for existing fullscreen
+- V-SliceBeat enhanced
+- V-FX-GL-Rota-xxx removed theta issue on Live's undo
+- V-FX-Feedback2 added
+
+Ver 0.2
+- First public release
+
